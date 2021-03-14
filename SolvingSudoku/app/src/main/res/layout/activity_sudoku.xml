@@ -1,0 +1,1290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SudokuActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="360dp"
+            android:layout_height="360dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/sudokubg"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/sudokuRow_0"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="9">
+
+                <TextView
+                    android:id="@+id/sudokuCeli_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 0 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(0)}"
+                    android:text="@{ sudoku.getSudokuData(0) !=0 ? String.valueOf(sudoku.getSudokuData(0)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(0)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 1 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(1)}"
+                    android:text="@{ sudoku.getSudokuData(1) !=0 ? String.valueOf(sudoku.getSudokuData(1)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(1)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 2 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(2)}"
+                    android:text="@{ sudoku.getSudokuData(2) !=0 ? String.valueOf(sudoku.getSudokuData(2)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(2)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 3 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(3)}"
+                    android:text="@{ sudoku.getSudokuData(3) !=0 ? String.valueOf(sudoku.getSudokuData(3)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(3)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 4 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(4)}"
+                    android:text="@{ sudoku.getSudokuData(4) !=0 ? String.valueOf(sudoku.getSudokuData(4)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(4)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 5 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(5)}"
+                    android:text="@{ sudoku.getSudokuData(5) !=0 ? String.valueOf(sudoku.getSudokuData(5)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(5)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 6 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(6)}"
+                    android:text="@{ sudoku.getSudokuData(6) !=0 ? String.valueOf(sudoku.getSudokuData(6)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(6)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 7 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(7)}"
+                    android:text="@{ sudoku.getSudokuData(7) !=0 ? String.valueOf(sudoku.getSudokuData(7)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(7)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 8 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(8)}"
+                    android:text="@{ sudoku.getSudokuData(8) !=0 ? String.valueOf(sudoku.getSudokuData(8)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(8)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sudokuRow_1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="9">
+
+                <TextView
+                    android:id="@+id/sudokuCeli_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 9 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(9)}"
+                    android:text="@{ sudoku.getSudokuData(9) !=0 ? String.valueOf(sudoku.getSudokuData(9)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(9)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 10 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(10)}"
+                    android:text="@{ sudoku.getSudokuData(10) !=0 ? String.valueOf(sudoku.getSudokuData(10)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(10)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 11 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(11)}"
+                    android:text="@{ sudoku.getSudokuData(11) !=0 ? String.valueOf(sudoku.getSudokuData(11)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(11)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 12 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(12)}"
+                    android:text="@{ sudoku.getSudokuData(12) !=0 ? String.valueOf(sudoku.getSudokuData(12)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(12)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 13 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(13)}"
+                    android:text="@{ sudoku.getSudokuData(13) !=0 ? String.valueOf(sudoku.getSudokuData(13)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(13)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 14 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(14)}"
+                    android:text="@{ sudoku.getSudokuData(14) !=0 ? String.valueOf(sudoku.getSudokuData(14)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(14)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 15 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(15)}"
+                    android:text="@{ sudoku.getSudokuData(15) !=0 ? String.valueOf(sudoku.getSudokuData(15)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(15)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 16 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(16)}"
+                    android:text="@{ sudoku.getSudokuData(16) !=0 ? String.valueOf(sudoku.getSudokuData(16)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(16)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 17 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(17)}"
+                    android:text="@{ sudoku.getSudokuData(17) !=0 ? String.valueOf(sudoku.getSudokuData(17)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(17)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sudokuRow_2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="9">
+
+                <TextView
+                    android:id="@+id/sudokuCeli_18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 18 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(18)}"
+                    android:text="@{ sudoku.getSudokuData(18) !=0 ? String.valueOf(sudoku.getSudokuData(18)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(18)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 19 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(19)}"
+                    android:text="@{ sudoku.getSudokuData(19) !=0 ? String.valueOf(sudoku.getSudokuData(19)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(19)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 20 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(20)}"
+                    android:text="@{ sudoku.getSudokuData(20) !=0 ? String.valueOf(sudoku.getSudokuData(20)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(20)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 21 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(21)}"
+                    android:text="@{ sudoku.getSudokuData(21) !=0 ? String.valueOf(sudoku.getSudokuData(21)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(21)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 22 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(22)}"
+                    android:text="@{ sudoku.getSudokuData(22) !=0 ? String.valueOf(sudoku.getSudokuData(22)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(22)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 23 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(23)}"
+                    android:text="@{ sudoku.getSudokuData(23) !=0 ? String.valueOf(sudoku.getSudokuData(23)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(23)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 24 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(24)}"
+                    android:text="@{ sudoku.getSudokuData(24) !=0 ? String.valueOf(sudoku.getSudokuData(24)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(24)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 25 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(25)}"
+                    android:text="@{ sudoku.getSudokuData(25) !=0 ? String.valueOf(sudoku.getSudokuData(25)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(25)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 26 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(26)}"
+                    android:text="@{ sudoku.getSudokuData(26) !=0 ? String.valueOf(sudoku.getSudokuData(26)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(26)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sudokuRow_3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="9">
+
+                <TextView
+                    android:id="@+id/sudokuCeli_27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 27 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(27)}"
+                    android:text="@{ sudoku.getSudokuData(27) !=0 ? String.valueOf(sudoku.getSudokuData(27)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(27)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 28 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(28)}"
+                    android:text="@{ sudoku.getSudokuData(28) !=0 ? String.valueOf(sudoku.getSudokuData(28)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(28)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 29 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(29)}"
+                    android:text="@{ sudoku.getSudokuData(29) !=0 ? String.valueOf(sudoku.getSudokuData(29)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(29)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 30 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(30)}"
+                    android:text="@{ sudoku.getSudokuData(30) !=0 ? String.valueOf(sudoku.getSudokuData(30)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(30)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 31 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(31)}"
+                    android:text="@{ sudoku.getSudokuData(31) !=0 ? String.valueOf(sudoku.getSudokuData(31)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(31)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 32 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(32)}"
+                    android:text="@{ sudoku.getSudokuData(32) !=0 ? String.valueOf(sudoku.getSudokuData(32)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(32)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 33 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(33)}"
+                    android:text="@{ sudoku.getSudokuData(33) !=0 ? String.valueOf(sudoku.getSudokuData(33)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(33)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_34"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 34 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(34)}"
+                    android:text="@{ sudoku.getSudokuData(34) !=0 ? String.valueOf(sudoku.getSudokuData(34)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(34)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_35"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 35 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(35)}"
+                    android:text="@{ sudoku.getSudokuData(35) !=0 ? String.valueOf(sudoku.getSudokuData(35)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(35)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sudokuRow_4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="9">
+
+                <TextView
+                    android:id="@+id/sudokuCeli_36"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 36 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(36)}"
+                    android:text="@{ sudoku.getSudokuData(36) !=0 ? String.valueOf(sudoku.getSudokuData(36)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(36)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_37"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 37 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(37)}"
+                    android:text="@{ sudoku.getSudokuData(37) !=0 ? String.valueOf(sudoku.getSudokuData(37)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(37)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_38"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 38 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(38)}"
+                    android:text="@{ sudoku.getSudokuData(38) !=0 ? String.valueOf(sudoku.getSudokuData(38)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(38)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_39"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 39 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(39)}"
+                    android:text="@{ sudoku.getSudokuData(39) !=0 ? String.valueOf(sudoku.getSudokuData(39)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(39)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 40 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(40)}"
+                    android:text="@{ sudoku.getSudokuData(40) !=0 ? String.valueOf(sudoku.getSudokuData(40)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(40)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 41 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(41)}"
+                    android:text="@{ sudoku.getSudokuData(41) !=0 ? String.valueOf(sudoku.getSudokuData(41)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(41)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 42 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(42)}"
+                    android:text="@{ sudoku.getSudokuData(42) !=0 ? String.valueOf(sudoku.getSudokuData(42)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(42)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_43"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 43 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(43)}"
+                    android:text="@{ sudoku.getSudokuData(43) !=0 ? String.valueOf(sudoku.getSudokuData(43)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(43)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 44 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(44)}"
+                    android:text="@{ sudoku.getSudokuData(44) !=0 ? String.valueOf(sudoku.getSudokuData(44)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(44)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sudokuRow_5"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="9">
+
+                <TextView
+                    android:id="@+id/sudokuCeli_45"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 45 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(45)}"
+                    android:text="@{ sudoku.getSudokuData(45) !=0 ? String.valueOf(sudoku.getSudokuData(45)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(45)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_46"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 46 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(46)}"
+                    android:text="@{ sudoku.getSudokuData(46) !=0 ? String.valueOf(sudoku.getSudokuData(46)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(46)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_47"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 47 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(47)}"
+                    android:text="@{ sudoku.getSudokuData(47) !=0 ? String.valueOf(sudoku.getSudokuData(47)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(47)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_48"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 48 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(48)}"
+                    android:text="@{ sudoku.getSudokuData(48) !=0 ? String.valueOf(sudoku.getSudokuData(48)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(48)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_49"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 49 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(49)}"
+                    android:text="@{ sudoku.getSudokuData(49) !=0 ? String.valueOf(sudoku.getSudokuData(49)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(49)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_50"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 50 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(50)}"
+                    android:text="@{ sudoku.getSudokuData(50) !=0 ? String.valueOf(sudoku.getSudokuData(50)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(50)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_51"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 51 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(51)}"
+                    android:text="@{ sudoku.getSudokuData(51) !=0 ? String.valueOf(sudoku.getSudokuData(51)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(51)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_52"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 52 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(52)}"
+                    android:text="@{ sudoku.getSudokuData(52) !=0 ? String.valueOf(sudoku.getSudokuData(52)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(52)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_53"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 53 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(53)}"
+                    android:text="@{ sudoku.getSudokuData(53) !=0 ? String.valueOf(sudoku.getSudokuData(53)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(53)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sudokuRow_6"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="9">
+
+                <TextView
+                    android:id="@+id/sudokuCeli_54"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 54 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(54)}"
+                    android:text="@{ sudoku.getSudokuData(54) !=0 ? String.valueOf(sudoku.getSudokuData(54)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(54)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_55"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 55 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(55)}"
+                    android:text="@{ sudoku.getSudokuData(55) !=0 ? String.valueOf(sudoku.getSudokuData(55)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(55)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_56"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 56 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(56)}"
+                    android:text="@{ sudoku.getSudokuData(56) !=0 ? String.valueOf(sudoku.getSudokuData(56)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(56)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_57"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 57 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(57)}"
+                    android:text="@{ sudoku.getSudokuData(57) !=0 ? String.valueOf(sudoku.getSudokuData(57)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(57)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_58"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 58 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(58)}"
+                    android:text="@{ sudoku.getSudokuData(58) !=0 ? String.valueOf(sudoku.getSudokuData(58)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(58)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_59"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 59 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(59)}"
+                    android:text="@{ sudoku.getSudokuData(59) !=0 ? String.valueOf(sudoku.getSudokuData(59)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(59)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 60 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(60)}"
+                    android:text="@{ sudoku.getSudokuData(60) !=0 ? String.valueOf(sudoku.getSudokuData(60)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(60)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_61"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 61 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(61)}"
+                    android:text="@{ sudoku.getSudokuData(61) !=0 ? String.valueOf(sudoku.getSudokuData(61)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(61)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_62"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 62 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(62)}"
+                    android:text="@{ sudoku.getSudokuData(62) !=0 ? String.valueOf(sudoku.getSudokuData(62)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(62)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sudokuRow_7"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="9">
+
+                <TextView
+                    android:id="@+id/sudokuCeli_63"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 63 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(63)}"
+                    android:text="@{ sudoku.getSudokuData(63) !=0 ? String.valueOf(sudoku.getSudokuData(63)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(63)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_64"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 64 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(64)}"
+                    android:text="@{ sudoku.getSudokuData(64) !=0 ? String.valueOf(sudoku.getSudokuData(64)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(64)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_65"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 65 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(65)}"
+                    android:text="@{ sudoku.getSudokuData(65) !=0 ? String.valueOf(sudoku.getSudokuData(65)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(65)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_66"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 66 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(66)}"
+                    android:text="@{ sudoku.getSudokuData(66) !=0 ? String.valueOf(sudoku.getSudokuData(66)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(66)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_67"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 67 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(67)}"
+                    android:text="@{ sudoku.getSudokuData(67) !=0 ? String.valueOf(sudoku.getSudokuData(67)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(67)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_68"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 68 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(68)}"
+                    android:text="@{ sudoku.getSudokuData(68) !=0 ? String.valueOf(sudoku.getSudokuData(68)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(68)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_69"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 69 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(69)}"
+                    android:text="@{ sudoku.getSudokuData(69) !=0 ? String.valueOf(sudoku.getSudokuData(69)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(69)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 70 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(70)}"
+                    android:text="@{ sudoku.getSudokuData(70) !=0 ? String.valueOf(sudoku.getSudokuData(70)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(70)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_71"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 71 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(71)}"
+                    android:text="@{ sudoku.getSudokuData(71) !=0 ? String.valueOf(sudoku.getSudokuData(71)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(71)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sudokuRow_8"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:weightSum="9">
+
+                <TextView
+                    android:id="@+id/sudokuCeli_72"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 72 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(72)}"
+                    android:text="@{ sudoku.getSudokuData(72) !=0 ? String.valueOf(sudoku.getSudokuData(72)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(72)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_73"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 73 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(73)}"
+                    android:text="@{ sudoku.getSudokuData(73) !=0 ? String.valueOf(sudoku.getSudokuData(73)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(73)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_74"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 74 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(74)}"
+                    android:text="@{ sudoku.getSudokuData(74) !=0 ? String.valueOf(sudoku.getSudokuData(74)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(74)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_75"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 75 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(75)}"
+                    android:text="@{ sudoku.getSudokuData(75) !=0 ? String.valueOf(sudoku.getSudokuData(75)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(75)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_76"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 76 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(76)}"
+                    android:text="@{ sudoku.getSudokuData(76) !=0 ? String.valueOf(sudoku.getSudokuData(76)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(76)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_77"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 77 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(77)}"
+                    android:text="@{ sudoku.getSudokuData(77) !=0 ? String.valueOf(sudoku.getSudokuData(77)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(77)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_78"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 78 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(78)}"
+                    android:text="@{ sudoku.getSudokuData(78) !=0 ? String.valueOf(sudoku.getSudokuData(78)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(78)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_79"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 79 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(79)}"
+                    android:text="@{ sudoku.getSudokuData(79) !=0 ? String.valueOf(sudoku.getSudokuData(79)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(79)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+
+                <TextView
+                    android:id="@+id/sudokuCeli_80"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@{sudoku.focusLocation == 80 ? 0xffffcc33:0x00000000}"
+                    android:gravity="center"
+                    android:onClick="@{()->sudoku.onSudokuCeilClick(80)}"
+                    android:text="@{ sudoku.getSudokuData(80) !=0 ? String.valueOf(sudoku.getSudokuData(80)) : `  `}"
+                    android:textColor="@{sudoku.isFixed(80)? 0xff33CC33 : 0xff000000}"
+                    android:textSize="20sp"></TextView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="360dp"
+            android:layout_height="180dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/sudokuAnswer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{()->sudoku.SudokuAnswer()}"
+                    android:text="答案" />
+
+                <Button
+                    android:id="@+id/sudokuCal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="计算" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{()->sudoku.createRandomSudoku()}"
+                    android:text="生成" />
+                <Button
+                    android:id="@+id/sudokuClear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="清空" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="1" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="2" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="3" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="4" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/d0dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="6" />
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="7" />
+
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="8" />
+
+                <Button
+                    android:id="@+id/button9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="9" />
+
+                <Button
+                    android:id="@+id/button0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="x" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+        <import type="com.example.solvingsudoku.Sudoku" />
+        <variable
+            name="sudoku"
+            type="Sudoku" />
+    </data>
+
+</layout>
